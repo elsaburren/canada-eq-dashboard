@@ -1,5 +1,5 @@
 # canada-eq-dashboard
-A dashboard for visualizing the locations of historical earthquakes in Canada with the ability to fit distributions to the annual number of earthquakes as well as to their magnitudes.
+A Dash-Plotly dashboard for visualizing the locations of historical earthquakes in Canada with the ability to fit distributions to the annual number of earthquakes as well as to their magnitudes.
 <p>
 Language: Python, I used version 3.7.9 to develop the app.
 </p>
