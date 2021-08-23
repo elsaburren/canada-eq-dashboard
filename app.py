@@ -23,8 +23,8 @@ df = df.loc[:, ~df.columns.str.contains('^Unnamed')]
 # Set types
 df.astype(dtype={'latitude' : float, 'longitude' : float, 'depth' : float, 'magnitude' : float, 'magnitude type' : str, 'place' : str}, copy=True)
 
-# Remove eq < 2
-df = df.loc[df['magnitude']>=2.0,:]
+# Remove eq < 4
+df = df.loc[df['magnitude']>=4.0,:]
 """
 
 # Load cleaned data from elsaburren/github (comment this line out if above sniplet is used) 
