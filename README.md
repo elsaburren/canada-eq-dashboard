@@ -12,5 +12,5 @@ Modules:
 </ul>
 </p>
 <p>
-Source of the data: Government of Canada. The Url at the time of downloading the data is: http://ftp.maps.canada.ca/pub/nrcan_rncan/Earthquakes_Tremblement-de-terre/canadian-earthquakes_tremblements-de-terre-canadien/eqarchive-en.csv
+Source of the data: Government of Canada. The url at the time of downloading the data is: http://ftp.maps.canada.ca/pub/nrcan_rncan/Earthquakes_Tremblement-de-terre/canadian-earthquakes_tremblements-de-terre-canadien/eqarchive-en.csv
 </p>
