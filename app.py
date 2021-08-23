@@ -26,6 +26,7 @@ df.astype(dtype={'latitude' : float, 'longitude' : float, 'depth' : float, 'magn
 # Remove eq < 2
 df = df.loc[df['magnitude']>=2.0,:]
 """
+
 # Load cleaned data from elsaburren/github (comment this line out if above sniplet is used) 
 df = pd.read_csv('https://raw.githubusercontent.com/elsaburren/canada-eq-dashboard/main/eqarchive-en.csv')
 
