@@ -9,3 +9,4 @@ pandas==1.2.4
 pandas-profiling==3.0.0
 plotly==5.2.1
 scipy==1.7.0
+gunicorn
