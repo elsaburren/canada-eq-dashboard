@@ -7,7 +7,7 @@ import dash
 import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
-import math
+import math, os
 from scipy.stats import pareto, lognorm, gamma, binom, poisson, nbinom
 
 
