@@ -8,9 +8,11 @@ Modules:
 <ul>
   <li>Plotly 5.2.1</li>
   <li>Dash 1.20.0</li>
+  <li>Pandas 1.2.4</li>
   <li>Scipy 1.7.0</li>
 </ul>
 </p>
 <p>
-Source of the data: Government of Canada. The url at the time of downloading the data is: http://ftp.maps.canada.ca/pub/nrcan_rncan/Earthquakes_Tremblement-de-terre/canadian-earthquakes_tremblements-de-terre-canadien/eqarchive-en.csv
+Source of the data: Government of Canada. The url at the time of downloading the data is: 
+  http://ftp.maps.canada.ca/pub/nrcan_rncan/Earthquakes_Tremblement-de-terre/canadian-earthquakes_tremblements-de-terre-canadien/eqarchive-en.csv
 </p>
