@@ -164,11 +164,11 @@ app.layout = html.Div([
         html.H2('Map and Frequency', style={'text-align': 'left', 'width':'100%'}),
         html.Div([
             html.Div([
-                dcc.Graph(id='fig_map', figure={}, style={'min-width':'450px'})
-                ], style={'float':'left', 'max-width':'98%', 'min-width':'48%', 'margin-left':'2%'}),
+                dcc.Graph(id='fig_map', figure={}, style={'min-width':'400px'})
+                ], style={'float':'left', 'max-width':'98%', 'min-width':'48%', 'margin-left':'1%'}),
             html.Div([
-                dcc.Graph(id='fig_frq', figure={}, style={'min-width':'450px'})
-                ], style={'float':'left', 'max-width':'98%', 'min-width':'48%', 'margin-left':'2%'}),
+                dcc.Graph(id='fig_frq', figure={}, style={'min-width':'400px'})
+                ], style={'float':'left', 'max-width':'98%', 'min-width':'48%', 'margin-left':'1%'}),
         ], style={'width':'100%', 'float':'left'})
     ], style={'max-width':'1600px'}),
 
@@ -177,7 +177,7 @@ app.layout = html.Div([
         html.H2('Fitting Distributions', style={'text-align': 'left', 'width':'100%'}),
         html.Div([
             html.Div([
-                dcc.Graph(id='fig_sev_dist', figure={}, style={'min-width':'450px'}),
+                dcc.Graph(id='fig_sev_dist', figure={}, style={'min-width':'400px'}),
                 html.Table([
                     html.Div('Select Distribution for EQ Magnitudes: ', style={'float':'left', 'padding': '5px 5px 5px 3px', 'border': '1px solid rgb(200,200,200)', 'width':'350px', 'height':'24px'}),
                     dcc.Dropdown(id='slct_sev_dist', 
@@ -189,9 +189,9 @@ app.layout = html.Div([
                                 style={'float':'left', 'width':'200px'})
                 ], style={'height':'24px'}),
                 html.P(id='out_sev_dist', children=[])
-                ], style={'float':'left', 'max-width':'98%', 'min-width':'48%', 'margin-left':'2%'}),
+                ], style={'float':'left', 'max-width':'98%', 'min-width':'48%', 'margin-left':'1%'}),
             html.Div([
-                dcc.Graph(id='fig_frq_dist', figure={}, style={'min-width':'450px'}),
+                dcc.Graph(id='fig_frq_dist', figure={}, style={'min-width':'400px'}),
                 html.Table([
                     html.Div('Select Distribution for Annual Nb of EQ: ', style={'float':'left', 'padding': '5px 5px 5px 3px', 'border': '1px solid rgb(200,200,200)', 'width':'350px', 'height':'24px'}),
                     dcc.Dropdown(
@@ -203,7 +203,7 @@ app.layout = html.Div([
                         style={'float':'left', 'width':'200px'})
                 ], style={'height':'24px'}),
                 html.P(id='out_frq_dist', children=[])
-                ], style={'float':'left', 'max-width':'98%', 'min-width':'48%', 'margin-left':'2%'})
+                ], style={'float':'left', 'max-width':'98%', 'min-width':'48%', 'margin-left':'1%'})
         ], style={'width':'100%', 'float':'left'}),
     ], style={'max-width':'1600px'}),
 
