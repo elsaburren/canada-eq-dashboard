@@ -136,73 +136,80 @@ class Severity:
             return 'undefined'
     
 # App Layout
-app = dash.Dash(__name__, meta_tags=[{'name':'viewport', 'content':'width=device-width, initial-scale=1.0'}],)
+app = dash.Dash(__name__, meta_tags=[{'name':'viewport', 'content':'width=device-width, initial-scale=1.0'}])
 
 server = app.server
 
 app.layout = html.Div([
     html.H1('Canadian Earthquakes Dashboard', style={'text-align': 'left'}),
     
-    html.Table([html.Div('Select Magnitude Threshold: ', style={'float':'left', 'padding': '5px 5px 5px 3px', 'border': '1px solid rgb(200,200,200)', 'width':'350px', 'height':'24px'}), dcc.Dropdown(
+    html.Table([
+        html.Div('Select Magnitude Threshold: ', style={'float':'left', 'padding': '5px 5px 5px 3px', 'border': '1px solid rgb(200,200,200)', 'width':'350px', 'height':'24px'}), dcc.Dropdown(
         id='slct_magnitude', 
         options=[{'label' : x, 'value' : x} for x in magnitude_options],
         multi=False,
         value=5,
-        style={'width':'200px', 'float':'left'}
+        style={'float':'left', 'width':'200px'}
     )], style={'height':'24px'}),
     
-    html.Table([html.Div(id='out_mag', children=[]), 
-                html.Div(id='out_mag_types'), 
-                html.Div('Source of data: Canada.ca, EQs in period: 01 jan 1985 to 31 dec 2019'), 
-                html.Div(children=['Author: Elsa Burren, elsa@promasta.com, ', html.A('www.promasta.com', href='https://www.promasta.com', target='_blank'), '. Feel free to contact me!'], style={'margin-top':'10px'})
-               ], style={'width':'100vw', 'margin-top':'5px'}),
+    html.Table([
+        html.Div(id='out_mag', children=[]), 
+        html.Div(id='out_mag_types'), 
+        html.Div('Source of data: Canada.ca, EQs in period: 01 jan 1985 to 31 dec 2019'), 
+        html.Div(children=['Author: Elsa Burren, elsa@promasta.com, ', html.A('www.promasta.com', href='https://www.promasta.com', target='_blank'), '. Feel free to contact me!'], style={'margin-top':'10px'})
+    ], style={'width':'95vw', 'margin-top':'5px'}),
     
     html.P([
         html.Hr(style={'width':'100%', 'margin-top':'1vh', 'float':'left'}),
         html.H2('Map and Frequency', style={'text-align': 'left', 'width':'100%'}),
-    
         html.Div([
-            dcc.Graph(id='fig_map', figure={}, style={'float':'left', 'padding':'1vw', 'min-width':'650px'}),
-            dcc.Graph(id='fig_frq', figure={}, style={'float':'left', 'padding':'1vw', 'min-width':'650px'})
-        ], style={'width':'100%', 'float':'left'}),
-    ], style={'max-width':'1500px'}),
-    
+            html.Div([
+                dcc.Graph(id='fig_map', figure={}, style={'min-width':'450px'})
+                ], style={'float':'left', 'max-width':'98%', 'min-width':'48%', 'margin-left':'2%'}),
+            html.Div([
+                dcc.Graph(id='fig_frq', figure={}, style={'min-width':'450px'})
+                ], style={'float':'left', 'max-width':'98%', 'min-width':'48%', 'margin-left':'2%'}),
+        ], style={'width':'100%', 'float':'left'})
+    ], style={'max-width':'1600px'}),
+
     html.P([
-        html.Br(),
         html.Hr(style={'width':'100%', 'margin-top':'1vh', 'float':'left'}),
         html.H2('Fitting Distributions', style={'text-align': 'left', 'width':'100%'}),
-    
         html.Div([
             html.Div([
-                html.P([
+                dcc.Graph(id='fig_sev_dist', figure={}, style={'min-width':'450px'}),
+                html.Table([
                     html.Div('Select Distribution for EQ Magnitudes: ', style={'float':'left', 'padding': '5px 5px 5px 3px', 'border': '1px solid rgb(200,200,200)', 'width':'350px', 'height':'24px'}),
                     dcc.Dropdown(id='slct_sev_dist', 
-                                 options=[{'label' : 'Pareto',     'value' : 'pareto'},
-                                          {'label' : 'Gamma',      'value' : 'gamma'},
-                                          {'label' : 'Lognormal',  'value' : 'lognorm'}],
+                                 options=[{'label' : 'Pareto',    'value' : 'pareto'},
+                                          {'label' : 'Gamma',     'value' : 'gamma'},
+                                          {'label' : 'Lognormal', 'value' : 'lognorm'}],
                                 multi=False,
                                 value='pareto',
-                                style={'float':'left', 'min-width':'200px'})
+                                style={'float':'left', 'width':'200px'})
                 ], style={'height':'24px'}),
-                dcc.Graph(id='fig_sev_dist', figure={}),
                 html.P(id='out_sev_dist', children=[])
-            ], style={'float':'left', 'padding':'1vw', 'min-width':'650px'}),
+                ], style={'float':'left', 'max-width':'98%', 'min-width':'48%', 'margin-left':'2%'}),
             html.Div([
-                html.P([
+                dcc.Graph(id='fig_frq_dist', figure={}, style={'min-width':'450px'}),
+                html.Table([
                     html.Div('Select Distribution for Annual Nb of EQ: ', style={'float':'left', 'padding': '5px 5px 5px 3px', 'border': '1px solid rgb(200,200,200)', 'width':'350px', 'height':'24px'}),
                     dcc.Dropdown(
                         id='slct_frq_dist', 
-                        options=[{'label' : 'Poisson',            'value' : 'poisson'},
-                                 {'label' : 'Flexible',           'value' : 'flexible'}],
+                        options=[{'label' : 'Poisson',  'value' : 'poisson'},
+                                 {'label' : 'Flexible', 'value' : 'flexible'}],
                         multi=False,
                         value='poisson',
-                        style={'float':'left', 'min-width':'200px'})
+                        style={'float':'left', 'width':'200px'})
                 ], style={'height':'24px'}),
-                dcc.Graph(id='fig_frq_dist', figure={}),
                 html.P(id='out_frq_dist', children=[])
-            ], style={'float':'left', 'padding':'1vw', 'min-width':'650px'})
-        ], style={'width':'100%', 'float':'left'})
-    ], style={'max-width':'1500px'})
+                ], style={'float':'left', 'max-width':'98%', 'min-width':'48%', 'margin-left':'2%'})
+        ], style={'width':'100%', 'float':'left'}),
+    ], style={'max-width':'1600px'}),
+
+    html.Table([
+        html.Div(children=['Source code: ', html.A('github/elsaburren', href='https://github.com/elsaburren/canada-eq-dashboard', target='_blank')]) 
+    ], style={'width':'95vw', 'margin-top':'5px'})
 ])
 
 # Create and connect Plotly graphs with Dash Components
@@ -268,7 +275,7 @@ def update_sev_dist(slct_magnitude, slct_dist):
     dff = create_survival(dff, 'magnitude', fitted_dist)
     
     # Create graph output
-    fig_dist = px.scatter(dff, x='magnitude', y='sf', color='sf_type', title='Observed vs {} Survival Prob for Magnitudes >= {}'.format(format_dist_name[fitted_dist.type()], slct_magnitude))
+    fig_dist = px.scatter(dff, x='magnitude', y='sf', color='sf_type', title='Survival Prob for Magnitudes >= {}'.format(slct_magnitude))
     fig_dist.update_layout(legend=dict(title='Distribution'), yaxis=dict(title='survival probability (1-CDF)'))
 
     # Create text output and return
@@ -300,7 +307,7 @@ def update_frq_dist(slct_magnitude, slct_dist):
     dff = create_survival(dff, 'count', fitted_dist)
 
     # Create graph output
-    fig_dist = px.scatter(dff, x='count', y='sf', color='sf_type', title='Observed vs {} Survival Prob for Nb of EQs'.format(format_dist_name[fitted_dist.type()]))
+    fig_dist = px.scatter(dff, x='count', y='sf', color='sf_type', title='Survival Prob for Nb of EQs')
     fig_dist.update_layout(legend=dict(title='Distribution'), yaxis=dict(title='survival probability (1-CDF)'), xaxis=dict(title='number EQs with magnitude >= {}'.format(slct_magnitude)))
     
     # Create output and return
