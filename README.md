@@ -6,8 +6,8 @@ Language: Python, I used version 3.7.9 to develop the app.
 <p>
 Modules:
 <ul>
-  <li>Plotly 5.2.1</li>
   <li>Dash 1.20.0</li>
+  <li>Plotly 5.2.1</li>
   <li>Pandas 1.2.4</li>
   <li>Scipy 1.7.0</li>
 </ul>
